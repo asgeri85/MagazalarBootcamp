@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/kategoriFragment">
+
+    <fragment
+        android:id="@+id/kategoriFragment"
+        android:name="com.example.magazalarbootcamp.view.KategoriFragment"
+        android:label="fragment_kategori"
+        tools:layout="@layout/fragment_kategori" >
+        <action
+            android:id="@+id/action_kategoriFragment_to_marketFragment"
+            app:destination="@id/marketFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/marketFragment"
+        android:name="com.example.magazalarbootcamp.view.MarketFragment"
+        android:label="fragment_market"
+        tools:layout="@layout/fragment_market" >
+        <argument
+            android:name="kategori"
+            app:argType="com.example.magazalarbootcamp.model.Kategori" />
+        <action
+            android:id="@+id/action_marketFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.magazalarbootcamp.view.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="market"
+            app:argType="com.example.magazalarbootcamp.model.Market" />
+        <action
+            android:id="@+id/action_detailFragment_to_brosurFragment"
+            app:destination="@id/brosurFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/brosurFragment"
+        android:name="com.example.magazalarbootcamp.view.BrosurFragment"
+        android:label="fragment_brosur"
+        tools:layout="@layout/fragment_brosur" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+</navigation>
